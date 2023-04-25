@@ -1,0 +1,8 @@
+Practical – 4
+Aim : DFT of 4x4 gray scale image.
+# Code :
+`
+clc ;
+f = [1 ,1 ,1 ,1;1 ,1 ,1 ,1;1 ,1 ,1 ,1;1 ,1 ,1 ,1];
+t = fft2(f);
+disp("2D DFT of given 2D image = ",t);
