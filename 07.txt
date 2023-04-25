@@ -1,0 +1,58 @@
+Practical – 7
+Aim: Perform threshold operation, perform gray level slicing without
+background.
+
+
+7.A) Perform threshold operation
+# Code :
+// Threshold Operation.
+clc ;
+a = imread ("");
+a = rgb2gray (a);
+[m n] = size (a);
+t = input("Enter the threshold parameter ");
+for i = 1:m
+for j=1:n
+if(a(i,j)<t)
+b(i,j)=0;
+else
+b(i,j)=255;
+end
+end
+end
+figure(1)
+imshow(uint8(a));
+title('Original Image');
+figure(2)
+imshow(uint8(b));
+title('Threshold Image');
+xlabel(sprintf('Threshold value is %g' ,t));
+
+
+
+7.B) Perform gray level slicing without background.
+Code :
+// Grey level Slicing
+clc ;
+x = imread ("");
+x = rgb2gray(x);
+y = double(x);
+[m n] = size(y);
+L = max(x);
+a = round(L/2);
+b = L;
+for i =1: m
+for j =1: n
+if(y(i,j) >=a & y(i,j) <=b)
+z(i,j) = L;
+else
+z(i,j)=0;
+end
+end
+end
+z = uint8 (z); figure (1)
+imshow(x)
+title ( ' Orginal Image ' )
+figure (2)
+imshow(z);
+title ( 'Gray Level Slicing without preserving background ' )
