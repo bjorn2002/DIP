@@ -1,0 +1,104 @@
+Practical – 9
+Aim: Binary Image processing and Color image Processing.
+
+
+9.A) Binary Image Processing - Dilation and Erosion
+# Code :
+// Dilation and Erosion.
+a=imread('');
+//se=CreateStructureElement('square',3);
+se=imcreatese('cross',3,3);
+a1=imdilate(a,se);
+a2=imerode(a,se);
+figure(1)
+imshow(a);
+title('Original Image');
+figure(2)
+imshow(a1);
+title('Dilated Image');
+figure(3)
+imshow(a2);
+title('Eroded Image');
+
+
+
+9.B) Binary Image Processing - Opening And Closing.
+# Code :
+// Opening and Closing
+a=imread('');
+se=imcreatese('rect',3,3);
+a1=imdilate(a,se);
+a2=imerode(a1,se);
+figure(1)
+imshow(a);
+title('Original Image');
+figure(2)
+imshow(a2);
+title('Closed Image');
+a2=imdilate(a1,se);
+figure(3)
+imshow(a2);
+title('Opened Image');
+
+
+
+9.C) Colour Image processing- Image with RED Green Blue Component.
+# Code :
+// Colour Image processing- Image with RED Green Blue Component
+RGB=imread('');
+R=RGB;
+G=RGB;
+B=RGB;
+R(:,:,2)=0;
+R(:,:,3)=0;
+G(:,:,1)=0;
+G(:,:,3)=0;
+B(:,:,1)=0;
+B(:,:,2)=0;
+figure(1)
+imshow(RGB)
+title('Original Image')
+figure(2)
+imshow(R)
+title('Image with Red Component')
+figure(3)
+imshow(G)
+title('Image with Green Component')
+figure(4)
+imshow(B)
+title('Image with Blue Component')
+
+
+
+9.D) Colour Image processing- Histogram equalised Image
+# Code :
+// Histogram equalised Image
+a=imread('');
+b=rgb2ntsc(a);
+b(:,:,1)=imhistequal(b(:,:,1));
+c=ntsc2rgb(b);
+figure(1)
+imshow(a)
+title('Original Image')
+figure(2)
+imshow(c)
+title('Histogram equalised Image')
+
+
+
+#9.E) Colour Image Processing – Histogram of Grey image
+# Code :
+// Histogram of gray Image
+a=imread('');
+[count1, cells]=imhist(a(:,:));
+figure(1);
+plot(count1)
+b=imhistequal(a(:,:))
+figure(2)
+imshow(b)
+figure(3)
+imshow(a)
+title('Original Image')
+[count, cells]=imhist(b(:,:));
+figure(4);
+plot(count)
