@@ -1,0 +1,35 @@
+Practical – 5
+Aim : Compute discrete cosine transform, Program to perform KL transform
+for the given 2Dmatrix
+5.A) Discrete Cosine transform of an image
+# Code :
+`
+//one dimensional cosine transform
+clc; clear all;
+//f=[1 2 4 7]; //Input: A row matrix
+//Input ex. f=[1 2 4 7]
+N=4;//finding length ofinput sequence
+F=zeros(1,N);//cosine transform of input
+//C=zeros(N,N);
+for k=1:N for n=1:N
+if (k-1)==0
+C(k,n)=inv(sqrt(N)); //cosine transform matrix
+else
+C(k,n)=sqrt(2)*inv(sqrt(N))*cos(%pi*(2*(n-1)+1)*(k1)/(2*N)); end
+disp(C(k,n)); end
+end
+`
+
+
+5.B) KL transform for the given 2D matrix.
+# Code :
+`
+// KL Transform
+clc;
+f=[2,4,4,2;4,6,8,3;2,8,10,4;3,8,6,2];
+k=[0.5,0.5,0.5,0.5;0.6532,0.2706,-0.2706,-0.6532;0.5,-0.5,-
+0.5,0.5;0.2706,-0.6532,0.6533,-0.2706];
+kt=[0.5,0.6532,0.5,0.2706;0.5,0.2706,-0.5,-0.6532;0.5,-
+0.2706,-0.5,0.6533;0.5,-0.6532,0.5,-0.2706];
+F=k*f*kt;
+disp("KL Transformed matrix",F);
